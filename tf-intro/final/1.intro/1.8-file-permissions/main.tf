@@ -7,13 +7,16 @@ variable "test" {
 #
 resource "local_file" "basic" {
   content  = "a simple string"
-  filename = "${path.module}/basic.txt"
+  filename = "${path.module}/read-only/basic.txt"
+
+  directory_permission = "0750"
+  file_permission      = "0740"
 }
 
 # Create a file from a multi-line string value (with embedded '\n' line feeds)
 #
 resource "local_file" "basic-mline" {
-  content  = "a simple string\nOn multiple lines\n"
+  source   = "/etc/hosts"
   filename = "${path.module}/basic-mline.txt"
 }
 
