@@ -1,0 +1,2 @@
+A text block
+The value of var.test='\a test string'
